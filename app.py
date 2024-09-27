@@ -19,4 +19,4 @@ def home():
     return jsonify({'message': 'Welcome to the authentication API'})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000)
