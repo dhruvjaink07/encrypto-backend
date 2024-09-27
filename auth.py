@@ -4,12 +4,14 @@ from pymongo import MongoClient
 from flask_bcrypt import Bcrypt
 from datetime import datetime
 from bson.objectid import ObjectId
-
+import os
 # Create a blueprint for authentication
 auth = Blueprint('auth', __name__)
 
+MONGO_URI = os.getenv('MONGO_URI')
+
 # MongoDB setup (this could be imported from a shared module or config)
-client = MongoClient('mongodb://localhost:27017/')  # Replace with your MONGO_URI
+client = MongoClient(MONGO_URI)  # Replace with your MONGO_URI
 db = client['Encrypto']  # Database name
 users = db['users']  # Collection for storing users
 
